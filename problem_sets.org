@@ -1,0 +1,521 @@
+:SETUP:
+#+TITLE: Problem Sets and Related Material for ARE 241
+#+AUTHOR: Ethan Ligon
+#+EMAIL: ligon@berkeley.edu
+#+OPTIONS: texht:t toc:nil ':t
+#+LATEX_CLASS_OPTIONS: [12pt,letterpaper]
+#+LATEX_HEADER: \newcommand{\T}{\top}
+#+LATEX_HEADER: \newcommand{\E}{\ensuremath{\mbox{E}}}
+#+LATEX_HEADER: \newcommand{\R}{\ensuremath{\mathbb{R}}}
+#+LATEX_HEADER: \newcommand{\Cov}{\ensuremath{\mbox{Cov}}}
+#+LATEX_HEADER: \newcommand{\Eq}[1]{(\ref{eq:#1})}
+#+LATEX_HEADER: \usepackage{bbm}\newcommand{\one}{\mathbbm{1}}
+#+LATEX_HEADER: \newtheorem{proposition}{Proposition} \newcommand{\Prop}[1]{Proposition \ref{prop:#1}}
+#+LATEX_HEADER: \newtheorem{theorem}{Theorem} \newcommand{\Thm}[1]{Theorem \ref{thm:#1}}
+#+LATEX_HEADER: \newtheorem{corollary}{Corollary} \newcommand{\Cor}[1]{Corollary \ref{cor:#1}}
+#+LATEX_HEADER: \newtheorem{remark}{Remark} \newcommand{\Rem}[1]{Remark \ref{rem:#1}}
+#+LATEX_HEADER: \newtheorem{condition}{Condition} \newcommand{\Cond}[1]{Condition \ref{cond:#1}}
+#+LATEX_HEADER: \newtheorem{lemma}{Lemma} \newcommand{\Lem}[1]{Lemma \ref{lem:#1}}
+#+LATEX_HEADER: \newtheorem{assumption}{Assumption} \newcommand{\Ass}[1]{Assumption \ref{ass:#1}}
+#+LATEX_HEADER: \newcommand{\Fig}[1]{Figure \ref{fig:#1}} \newcommand{\Tab}[1]{Table \ref{tab:#1}}
+#+LATEX_HEADER: \addbibresource{main.bib}\renewcommand{\refname}{}
+#+LATEX_HEADER: \addbibresource{ligon.bib}
+#+LATEX_HEADER: \usepackage{stringstrings}\renewcommand{\cite}[1]{\caselower[q]{#1}\citet{\thestring}}
+#+BIBLIOGRAPHY: main chicago
+#+PROPERTY: header-args:python :results output :noweb no-export :exports none :prologue (format "# Tangled from %s on %s" (buffer-file-name) (current-time-string))
+:END:
+
+* Possible paper with  experimental data
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3896526/ 
+
+* Problem set 1
+  :PROPERTIES:
+  :EXPORT_OPTIONS: toc:nil inline:t
+  :EXPORT_AUTHOR: Ethan Ligon & David Zilberman
+  :END:
+
+1. Suppose a household is managed like a business. It controls $\bar
+   N>0$ hours of labor. It runs a small enterprise that produces output with $N$ hours
+   of labor, with a Just-Pope production function with output 
+   \[ 
+      Y = f(N) + \alpha N\epsilon.
+   \] 
+   The production function $f$ is increasing, concave, and
+   continuously differentiable. The parameter $\alpha>0$.  The price
+   of output is $p$, while \epsilon is
+   a random variable with mean 0. Family members can also work outside
+   the firm and earn a wage of $w$ dollars per hour.
+
+   1. Establish the appropriate assumptions and find the optimal
+      decision rules for time allocation under risk neutrality. What is
+      the likelihood of an internal solution (when family members
+      diversify their time between work in the family business and the
+      labor market) for a risk neutral individual. How will a change in
+      the price of the variable input or the output affect the time
+      allocation and the input use?
+
+*************** SOLUTION 
+*************** END
+
+   2. Suppose that the family is risk averse and utility is a function
+      of wealth with initial wealth denoted by $W_0$.  What are the optimal
+      allocation rules for a risk averse household?  Derive the first
+      order conditions and interpret them.  How will changes in the price
+      of output and the wage rate affect time allocation and expected
+      output?
+
+*************** SOLUTION 
+                *Solution:* Assume an internal solution. Here, we need to consider the entire income for the household.
+
+                FOC:
+
+                The value of the marginal product of labor is equal to
+                the wage + a risk element that reflects the negative
+                correlation between marginal utility and .
+*************** END
+
+   3. Compare analytically the output of a risk averse family with a
+      risk neutral one. If the family has initial wealth of $W_0$ how
+      will a change in wealth affect its labor allocation and expected output?
+*************** SOLUTION
+A risk averse family will produce less than a risk neutral one based on
+our interpretation of the FOC. Using Sandmo, assuming decreasing
+absolute risk aversion in wealth, an increase in wealth will increase
+expected output and increase labor use inside the household (relative to
+outside the household).
+*************** END
+
+   4. Solve the problem for the case where the household has a negative
+      exponential utility function and the random variable is
+      distributed normally (specify the assumptions). How will an
+      increase in the variance of the random variable affect the time
+      allocation.
+
+*************** SOLUTION
+Based on the lecture, if you have negative exponential utility and a
+normal distribution, the objective function of the firm is to maximize
+mean profit minus *measure of absolute risk aversion*variance (you
+should know this---go to my lecture notes to review) [1].
+
+We denote the measure of absolute risk aversion as . Thus the objective
+function (in case of internal solution)is
+
+FOC:
+
+Obviously, risk reduces labor inside the household, and higher variance
+does the same.
+*************** END
+
+   5. Thus far the household was modeled as a firm. Explain how your
+      modeling will change if we consider a household that gains
+      utility from both income and leisure and total labor is not given
+      but is a decision variable.
+
+*************** SOLUTION
+In this case, we have a household production function, but now the
+household gains utility from leisure. In this case, we add another
+variable, , and the time allocation constraint is . In this case, one
+can have several formulations. If we have expected utility, we get
+utility from income and leisure, and the optimization problem becomes:
+
+in this case, you have utility from wealth, which is initial wealth plus
+income, and leisure.
+*************** END
+
+2. The microlevel production function is von Liebig, with
+   \[
+     y = \alpha x \qquad\text{for $x\leq\bar x$,}
+   \]
+   where $y$ is output per acre, $x$ is nitrogen fertilizer, and $\alpha$ is a land
+   fertility parameter, which  varies across fields.  The distribution
+   of \alpha across fields is determined by the density function
+   \[
+    g(\alpha) = \max(M - n\alpha,0).
+   \]
+
+   1. Given output price $p$, and fertilizer price $w$, what is aggregate
+      supply? What is aggregate fertilizer demand?
+
+*************** SOLUTION
+Farmers will produce only if profits are positive, i.e.,
+if
+
+or
+
+If profits are strictly positive, they will produce the maximum amount
+possible per acre, i.e., Aggregate supply is therefore given by the
+aggregated maximum output of each fertility grade of land that can be
+farmed profitably, or
+
+and aggregate demand for water by
+*************** END
+
+   2. Attempt to derive an aggregate production function and interpret its
+      coefficient.
+
+*************** SOLUTION
+Solving the fertilizer demand equation for $w/p$ yields
+
+and substituting this into the supply equation gives the aggregate
+production function.
+*************** END
+
+3. Let the /ex ante/ production function be
+   \[
+     Y = AK^\alpha L^{1-\alpha},
+   \]
+   where $Y$ is output, $K$ is capital, and $L$ is labor. Suppose output
+   price is increasing at rate \gamma, wage rate at rate \delta, and $r > \delta >
+   \gamma$, where $r$ is the discount rate. 
+   In a putty-clay framework, write a model to answer the following:
+
+   1. What is the optimal capital/output and labor/output ratio of a
+      new plant?
+
+*************** SOLUTION
+A producer building a new plant chooses capital, labor, and the
+planned economic life of the plant (denoted /T/) so as to maximize the
+discounted sum of expected gross profits less the cost of capital. The
+optimization problem is, therefore,
+
+subject to the no-shutdown condition
+
+.
+
+Using that
+
+we can rewrite the objective function as
+
+.
+
+The first-order conditions are (assuming an interior solution)
+
+whence
+
+and
+*************** END
+
+   2. What is the planned economic life of this plant?
+
+*************** SOLUTION
+*************** END
+
+   3. How will the optimal life of capital change as \gamma and \delta
+      increase?
+*************** SOLUTION
+ The comparative statics of dT/d and dT/d are simple to calculate.
+*************** END
+
+* Other material 
+4. a. According to the mean-preserving spread criterion, portfolios with
+the same mean may be compared. In this case, I, II, and IV have
+$\E(X)= 10$. Examine their density functions. That portfolio is
+riskier and has "more weight in the tail."
+
+[[media/image20.wmf]]
+
+Conclusions: II dominates IV; I dominates IV; and I and II cannot be
+compared because, for a small tail, I is riskier; but for a large tail,
+II is riskier.
+
+b. Second-order stochastic dominance: It is necessary to calculate and
+plot ∫/FX/ as a function of /X/. Any portfolio for which ∫/FX/ lies
+wholly to the right of another dominates the other.
+
+Conclusions: I dominates III, IV, and V; II dominates III and IV but not
+V.
+
+c. Order the distributions using the mean-variance criterion.
+
+I > II because it has the same mean and lower variance.
+
+I > III because it has a higher mean and a lower variance.
+
+I > IV because it has the same mean and lower variance.
+
+I > V because it has a higher mean and a lower variance.
+
+II > III because it has a higher mean and a lower variance.
+
+II > IV because it has the same mean and lower variance.
+
+Therefore, the ordering is I > II > III and IV and I > V.
+
+d. Order the distributions using the safety rule: min [/P/(/X/), ≤ 6].
+
+I II III IV V
+
+/P/(/X/) ≤ 6 1/6 1/3 1/3 1/3 1/6
+
+I and V are preferred to II, III, and IV.
+
+e. Order the distributions using the safety rule: maximize /d/ subject
+to [/P/(/X/) ≤ /d/] = 1/6.
+
+I II III IV V
+
+max /d/ 7 - /ε/ 5 - /ε/ 2 - /ε/ 3 - /ε/ 8 - /ε/.
+
+Thus, V > I > II > IV > III.
+
+f. Order the distributions using /U/(/X/) = ln (/X/ + 1).
+
+/E/(/U/) = /Σ P/(/X/) ln (/x/ + 1)
+
+I II III IV V
+
+/E/(/U/) 2.984 2.3075 2.1702 2.2115 2.2127
+
+Thus, II > I > V > IV > III.
+
+g. The mean-preserving spread, second-order stochastic dominance,
+mean-variance criterion, and safety rule min [/P/(/X/) ≤ 1/6] give
+partial orderings only. The safety rule max /d/ and the utility function
+give complete orderings.
+
+The mean-preserving spread and second-order stochastic dominance give
+rankings (albeit partial) and the basis of any risk-averse utility
+function. That is, the orderings implied by these two methods will be
+true for any risk-averse individual. Note that the partial orderings
+implied by these two methods are consistent with the orderings implied
+by the utility function.
+
+The orderings implied by the mean-variance criterion are consistent with
+expected utility maximization if the utility function is defined over
+only the mean and variance (or if the utility function is exponential
+and the distributions are all normally dist /d/). Note that the
+orderings implied by /M/ - /V/ are not consistent with those implied by
+the log utility function.
+
+The orderings implied by the safety rules are not consistent with any
+sort of utility or expected utility maximization.
+
+[1] . Note that is a moment-generating function of random variable at .
+    The moment-generating function of a random variable is . If is
+    normally distributed with mean and variance , then the
+    moment-generating function is . If we replace with , maximizing
+    exponential utility is equivalent to maximizing . This is all in my
+    notes.
+* Problem Set 2
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: ps2
+  :END:
+  1. Suppose a farm-household is managed like a business. It controls $\bar
+     N>0$ pounds of nitrogen fertilizer.  It produces produces maize with $N$ pounds
+     of nitrogen fertilizer, with a Cobb-Douglas production function with output 
+     \begin{equation}
+     \label{eq:cd0}
+        Y = A(P,K)N^\alpha e^\epsilon,
+     \end{equation}
+     where $A$ is a productivity function that depends on the amount
+     of phosphorus and potassium available on the field (for now take
+     this to be exogenous). The household can also sell their nitrogen
+     fertilizer to others at a price of $w$ dollars per pound.
+
+     1. Express farm-level supply in terms of $(w,p,A)$.
+
+     2. A famous experiment \citep{heady-etal55} involved varying
+        fertilizer levels on plots in Iowa and measuring the resulting
+        output in an incomplete block design; you'll find the data
+        from the experiment in the file =heady-etal55.csv=.  Use these data to estimate
+        a set of $A(P,K)$ (several discrete values) and output
+        elasticities $\alpha$ in \Eq{cd0}.  Report your results.
+#+BEGIN_SRC python :exports both
+import pandas as pd
+
+df=pd.read_csv('Data/heady-etal55.csv')
+
+#+END_SRC
+
+     3. Show that an implication of taking the production function to
+        be globally Cobb-Douglas (so that $A(P,K)$ is also
+        Cobb-Douglas) is that $\alpha$ in \Eq{cd0} will be constant.
+        Estimate the global Cobb-Douglas production function with
+        elasticities $(\alpha_P,\alpha_K,\alpha_N)$, devise a test of
+        the hypothesis that the production function is globally
+        Cobb-Douglas, and report your results from estimation and this
+        test using these experimental data.
+
+     4. What are the properties of the residuals you've estimated in
+        the previous question?  In the spirit of  Just-Pope,
+        construct a test to determine if
+        $\E(e^\epsilon|N,P,K)=\E(e^\epsilon)$, and report your results
+        using the Heady et al data.   What does a rejection imply
+        about the supply function  you constructed above?
+
+     5. Sometimes it is claimed that fertilizer is "risk increasing"
+        in maize production.  Evaluate this claim in light of your
+        results above.
+
+  2. A different sort of experiment on the relationship between
+     fertilizer and maize yields was conducted by \cite{duflo-etal08},
+     with data available from http://hdl.handle.net/1902.1/19699
+     \citep{duflo-etal08:data}, described in \cite{duflo-etal08}.
+     Here the experiment involved not fully experimental plots, but
+     instead a design in which about 300 particular farm-households
+     were chosen to participate.  Each farmer operated two or more
+     plots, each with a (different) fixed amount of nitrogen
+     fertilizer added (the formulation was different from that used in the
+     Heady et al experiment, so quantities will not be directly
+     comparable).  Other inputs were not controlled, so that farmers
+     were free to vary inputs across plots.
+
+     1. Each farmer operated a "control" plot without any experimentally-determined
+        fertilizer additions, and many operated a second plot with a
+        "half teaspoon" of fertilizer as a treatment.  Estimates of
+        dry yields per square meter are given in the dataset as
+        =dryweight_c_m2= and =dryweight_t12_m2= respectively.
+        Estimate the difference, averaged over farmers; describe and
+        implement a way to test the null hypothesis that this average
+        difference is equal to zero.
+#+BEGIN_SRC python :exports both
+import pandas as pd
+import pylab as pl
+
+df=pd.read_stata('Data/Duflo-etal08/profit_data.dta')
+print(df[['dryweight_c_m2','dryweight_t12_m2']].mean())
+
+pl.clf()
+df['dryweight_c_m2'].hist(bins=20)
+df['dryweight_t12_m2'].hist(bins=20)
+pl.legend(('Control','1/2 Tsp'))
+pl.savefig('duflo-etal08_t12_vs_c.png')
+
+#+END_SRC
+
+
+     2. Suppose that $N_0$ is the amount of nitrogen initially
+        available on all plots (including controls), and $N_+$ any
+        additional fertilizer added as an experimental treatment.  If
+        the production function for each plot was Cobb-Douglas, under
+        what conditions would the average difference you computed
+        above provide an estimate of the effects of fertilizer on
+        yield?
+
+     3. Use these data to estimate the parameters of the
+        production function $Y = A(N_0+N_+)^\alpha e^\epsilon$ (with
+        $A$ interpreted as a productivity parameter that doesn't vary
+        across plots or farmers).  Contrast your methods and results
+        with the previous question.
+   
+     4. Now suppose that not only nitrogen but also phosphorus and
+        potassium are taken as fixed factors by the farmer (the latter
+        two because of natural variation in soil fertility across
+        plots).  In a Cobb-Douglas specification this now gives a
+        collection of fixed factors $A(P,K)(N_0+N_+)^\alpha$ (other variable
+        inputs such as labor are not observed).  Consider a farmer
+        operating one plot with no nitrogen added, and a second plot
+        under the "1/2 teaspoon" treatment.  How will the farmer
+        allocate labor across the  two plots?  Does allowing for the
+        possibility of variable inputs affect your interpretation of
+        the results you obtained above?
+
+  3. The previous questions leaned heavily on a Cobb-Douglas
+     specification.  Now suppose that the production function is
+     actually a sort of Cobb-Douglas/von Liebig mashup:
+     $y=A\min\{\beta_LL,\beta_NN,\beta_PP,\beta_KK\}^{\alpha}$, where
+     $L$ is labor input, and $(N,P,K)$ are as above.
+
+     1. Consider the mean differences in  the experiments above
+        through the lens of the CDvLM production function: what
+        interpretation would you give to these results?
+
+     2. Mean differences aren't the  only useful statistic one can
+        construct from experimental data.  Another interesting
+        statistic in this case is the proportion of yields which  are
+        equal to  zero.  Consider these proportions for each  of the two datasets
+        discussed above; does this help in choosing between different
+        specifications of the production function?
+
+     3. If the CDvLM production function is the `correct'
+        specification, then production in the Duflo et al experiment
+        will depend on the distribution of the factors $(L,N_0,P,K)$
+        across plots.  What  can you say about this unknown
+        distribution and about the parameters of the CDvLM production
+        function using the data from this experiment?
+
+#+latex: \printbibliography
+
+** Data :noexport:
+*** Heady et al (1955)
+ #+BEGIN_SRC python :python /usr/bin/python3.5 :results output :export both :tangle /tmp/foo.py
+ # rpy2 now requires python3
+ from rpy2.robjects.packages import importr
+ from rpy2.robjects import r, pandas2ri
+
+ pandas2ri.activate()
+
+ foo = importr('agridat') # See https://www.rdocumentation.org/packages/agridat/versions/1.12
+
+ r.data('heady.fertilizer')
+ df = r['heady.fertilizer'].query("crop=='corn' and rep==1")
+
+ print(df[['P','K','N','yield']].dropna().to_string(index=False))
+ df[['P','K','N','yield']].dropna().to_csv('/tmp/heady-etal55.csv')
+ #print (df[['yield']]==0).count()
+ #+END_SRC
+
+ #+results:
+ #+begin_example
+ P  K    N  yield
+   0  0    0   24.5
+  40  0    0   26.7
+  80  0    0   22.1
+ 120  0    0   44.2
+ 160  0    0   12.0
+ 200  0    0   37.7
+ 240  0    0   38.0
+ 280  0    0   32.4
+ 320  0    0    5.3
+   0  0   40   23.9
+  40  0   40   60.2
+ 160  0   40   96.2
+ 200  0   40   81.1
+ 320  0   40   79.5
+   0  0   80   28.7
+  80  0   80   99.5
+ 160  0   80  102.2
+ 240  0   80   97.2
+ 320  0   80  116.9
+   0  0  120   25.1
+ 120  0  120  119.4
+ 160  0  120  133.3
+ 280  0  120  129.5
+ 320  0  120  135.7
+   0  0  160   17.3
+  40  0  160   96.0
+  80  0  160  115.9
+ 120  0  160  113.6
+ 160  0  160  129.7
+ 200  0  160  128.7
+ 240  0  160  127.6
+ 280  0  160  134.4
+ 320  0  160  122.9
+   0  0  200    7.3
+  40  0  200   95.4
+ 160  0  200  105.7
+ 200  0  200  140.3
+ 320  0  200  138.7
+   0  0  240   16.2
+  80  0  240  112.4
+ 160  0  240  130.5
+ 240  0  240  121.1
+ 320  0  240  127.3
+   0  0  280   26.8
+ 120  0  280  114.9
+ 160  0  280  123.6
+ 280  0  280  130.0
+ 320  0  280  131.8
+   0  0  320   25.1
+  40  0  320   81.9
+  80  0  320  129.0
+ 120  0  320  124.6
+ 160  0  320  135.6
+ 200  0  320  136.0
+ 240  0  320  130.9
+ 280  0  320  124.8
+ 320  0  320  127.9
+#+end_example
+
+*** Duflo et al (2008)
+[[./Data/Duflo-etal08]]

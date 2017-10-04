@@ -1,0 +1,11 @@
+codebook_pilot_SAFI_AER.csv (text/plain; charset=US-ASCII) 12627 bytes.
+codebook_SAFI_main_dataset_AER.csv (text/plain; charset=US-ASCII) 30266 bytes.
+codebook_time_buying_fert_AER.csv (text/plain; charset=US-ASCII) 1766 bytes.
+final_results_AER.do (text/x-stata-syntax; charset=US-ASCII) 25849 bytes.
+pilot_SAFI_AER.dta (application/x-stata) 306866 bytes.
+ProfitData_ReadMe.pdf (application/pdf) 16874 bytes.
+profit_calculations_FINAL.do (text/x-stata-syntax; charset=US-ASCII) 4320 bytes.
+profit_data.dta (application/x-stata) 33100 bytes.
+ReadMe.pdf (application/pdf) 433896 bytes.
+SAFI_main_dataset_AER.dta (application/x-stata) 306001 bytes.
+time_buying_fert_AER.dta (application/x-stata) 1760 bytes.
